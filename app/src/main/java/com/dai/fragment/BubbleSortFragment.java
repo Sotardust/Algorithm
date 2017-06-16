@@ -19,6 +19,7 @@ import com.dai.R;
 
 import java.text.SimpleDateFormat;
 import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  * Created by dai on 2017/5/26.
@@ -29,7 +30,7 @@ import java.util.Timer;
 
 public class BubbleSortFragment extends Fragment {
 
-    int[] ints = {4, 15, 43, 56, 78, 24, 49, 23, 89, 15, 25, 45, 4, 15, 43, 56, 78};
+    int[] ints = {15, 25, 20, 30, 80, 45, 78, 50, 35, 60};
 
     Handler handler = null;
     SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss:ss");
@@ -38,18 +39,34 @@ public class BubbleSortFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_bubble_sort, container, false);
-        TextView start = (TextView) view.findViewById(R.id.bubble_start);
+        final TextView start = (TextView) view.findViewById(R.id.bubble_start);
         final RelativeLayout relativeLayout = (RelativeLayout) view.findViewById(R.id.bubble_view);
         final BubbleSortView bubbleSortView = new BubbleSortView(getContext());
+        bubbleSortView.start(ints);
+        relativeLayout.addView(bubbleSortView);
+        final Timer timer = new Timer();
         start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                relativeLayout.addView(bubbleSortView);
+                timer.schedule(new TimerTask() {
+                    int number = 0;
 
-//                bubbleSortView.setDynamic(true) ;
-//                bubbleSortView.invalidate();
-//                relativeLayout.removeAllViews();
-//                relativeLayout.addView(bubbleView);
+                    @Override
+                    public void run() {
+                        for (int i = 0; i < ints.length - 1; i++) {
+                            if (ints[i] < ints[i + 1]) {
+                                int temp = ints[i + 1];
+                                ints[i + 1] = ints[i];
+                                ints[i] = temp;
+                            }
+                            bubbleSortView.start(ints);
+                        }
+                        if (number == ints.length)
+                            timer.cancel();
+                        ++number;
+                        System.out.println("number = " + number);
+                    }
+                }, 1, 800);
             }
         });
         return view;
@@ -61,6 +78,22 @@ public class BubbleSortFragment extends Fragment {
         private Paint paint;
         private boolean isDynamic = false;
 
+        public int getPosition() {
+            return position;
+        }
+
+        public void setPosition(int position) {
+            this.position = position;
+        }
+
+        private int position = 0;
+
+        public void setInts(int[] ints) {
+            this.ints = ints;
+        }
+
+        private int[] ints;
+
         public void setDynamic(boolean dynamic) {
             this.isDynamic = dynamic;
         }
@@ -68,10 +101,10 @@ public class BubbleSortFragment extends Fragment {
         public BubbleSortView(Context context) {
             super(context);
             paint = new Paint(); //设置一个笔刷大小是3的黄色的画笔
-            paint.setColor(Color.BLUE);
+            paint.setColor(Color.RED);
             paint.setStrokeJoin(Paint.Join.ROUND);
             paint.setStrokeCap(Paint.Cap.ROUND);
-            paint.setStrokeWidth(4);
+            paint.setStrokeWidth(5);
             paint.setAntiAlias(true);
             paint.setStyle(Paint.Style.STROKE);
 
@@ -79,21 +112,17 @@ public class BubbleSortFragment extends Fragment {
 
         @Override
         protected void onDraw(Canvas canvas) {
-            super.onDraw(canvas);
-//            if (isDynamic) {
-//                System.out.println("BubbleSortView.onDraw");
-
-            bubbleSort(ints, canvas, paint);
-//            } else {
-//                draw(canvas, paint);
-//            }
-        }
-
-        public void draw(Canvas canvas, Paint paint) {
             canvas.translate(canvas.getWidth() * 3 / 5, 600); //将位置移动画纸的坐标点:150,150
             for (int i = 0; i < ints.length; i++) {
-                canvas.drawLine(-i * 10, 0f, -i * 10, -ints[i] * 4, paint);
+                canvas.drawLine(-i * 15, 0f, -i * 15, -ints[i] * 4, paint);
             }
+        }
+
+
+        public void start(int[] ints) {
+            setInts(ints);
+            System.out.println("ints = " + ints);
+            postInvalidate();
         }
 
 
@@ -105,46 +134,12 @@ public class BubbleSortFragment extends Fragment {
             handler = new Handler() {
                 @Override
                 public void handleMessage(Message msg) {
-                    if ((int)msg.obj == 0) {
+                    if ((int) msg.obj == 0) {
                         System.out.println("msg.obj = " + msg.obj);
                         invalidate();
                     }
                 }
             };
-            canvas.translate(canvas.getWidth() * 3 / 5, 600);
-
-
-            final Timer timer = new Timer();
-
-//            final Thread thread = new Thread(new Runnable() {
-//                @Override
-//                public void run() {
-//                    for (int i = ints.length - 1; i > 0; i--) {
-                        for (int j = 0; j < ints.length - 1; j++) {
-                            if (ints[j] > ints[j + 1]) {
-                                int temp = ints[j + 1];
-                                ints[j + 1] = ints[j];
-                                ints[j] = temp;
-                            }
-                            System.out.println("ints = " + ints[j]);
-
-
-//                            Message message = new Message();
-//                            try {
-//                                Thread.sleep(100);
-//                                canvas.drawLine(-finalI * 10, 0, -finalI * 10, -ints[finalJ] * 4, paint);
-                                canvas.drawLine(-j * 10f, 0, -j * 10f, -ints[j] * 4f, paint);
-
-////                                handler.sendEmptyMessage(0);
-//                            } catch (InterruptedException e) {
-//                                e.printStackTrace();
-//                            }
-                        }
-//                    }
-//                }
-//            });
-//            thread.start();
-//            timer.cancel();
         }
     }
 }
