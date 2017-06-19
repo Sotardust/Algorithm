@@ -19,8 +19,12 @@
         android:gravity="center"
         android:text="开始" />
 
-    <RelativeLayout
-        android:id="@+id/bubble_view"
+
+    <FrameLayout
+        android:id="@+id/fragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></RelativeLayout>
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        />
+
 </LinearLayout>
