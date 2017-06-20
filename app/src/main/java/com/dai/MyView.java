@@ -18,6 +18,19 @@ public class MyView extends View {
     private int position;
     private int value;
 
+    public void setMolecule(int molecule) {
+        this.molecule = molecule;
+    }
+
+    private int molecule = 1;
+
+
+    public void setDenominator(float denominator) {
+        this.denominator = denominator;
+    }
+
+    private float denominator = 0;
+
     public MyView(Context context, int position, int value) {
         super(context);
         this.position = position;
@@ -32,9 +45,12 @@ public class MyView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        System.out.println("canvas.getWidth() = " + canvas.getWidth());
-        canvas.translate(canvas.getWidth() * (position + 1) / 20, 500); //将位置移动画纸的坐标点:150,150
-        System.out.println("canvas.getWidth() * (position + 1) / 10 = " + canvas.getWidth() * (position + 1) / 10);
+//        System.out.println("canvas.getWidth() = " + canvas.getWidth());
+        int width = canvas.getWidth() * (position + 1) / 20;
+        canvas.translate(width + denominator * (canvas.getWidth() / 20), 500); //将位置移动画纸的坐标点:150,150
+//        System.out.println("canvas.getWidth() * (position + 1) / 10 = " + canvas.getWidth() * (position + 1) / 10);
         canvas.drawLine(0f, 0f, -0f, -value * 4, paint);
     }
+
+
 }

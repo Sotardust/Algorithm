@@ -28,7 +28,7 @@ import java.text.SimpleDateFormat;
 public class BubbleSortFragment extends Fragment {
 
 //    int[] ints = {15, 25, 20, 30, 65, 45, 78, 50, 35, 60, 103, 86, 70, 43, 51, 32, 39, 76, 50};
-    int[] ints = {15, 60, 103, 50};
+        int[] ints = {15, 60, 103, 50};
     private static SparseArray<MyView> myViews = new SparseArray<>();
 
     Handler handler = null;
@@ -40,7 +40,7 @@ public class BubbleSortFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_bubble_sort, container, false);
         final TextView start = (TextView) view.findViewById(R.id.bubble_start);
         final FrameLayout linearLayout = (FrameLayout) view.findViewById(R.id.fragment);
-
+//
         for (int i = 0; i < ints.length; i++) {
             MyView myView = new MyView(getContext(), i, ints[i]);
             System.out.println("i = " + i);
@@ -58,7 +58,7 @@ public class BubbleSortFragment extends Fragment {
     }
 
     public void bubbleSort() {
-        LineEvaluator lineEvaluator = new LineEvaluator(myViews);
+        LineEvaluator lineEvaluator = new LineEvaluator();
         for (int i = 0; i < ints.length - 1; i++) {
             System.out.println("*************************");
             for (int j = 0; j < ints.length - 1; j++) {
@@ -68,15 +68,24 @@ public class BubbleSortFragment extends Fragment {
                     ints[j + 1] = temp;
                     final ValueAnimator anim = ValueAnimator.ofObject(lineEvaluator, myViews.get(j), myViews.get(j + 1));
                     final int finalJ = j;
+                    final int finalJ1 = j;
+                    final int[] count = {0};
                     anim.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
                         @Override
                         public void onAnimationUpdate(ValueAnimator animation) {
-//                            MyView myView = (MyView) animation.getAnimatedValue();
-//                            System.out.println("myView = " + myView);
-                            System.out.println("j = " + finalJ);
+                            MyView myView = (MyView) animation.getAnimatedValue();
+                            ++count[0];
+                            myView.setMolecule(count[0]);
+                            myView.setDenominator(animation.getAnimatedFraction());
+                            System.out.println("count[0] = " + count[0]);
+                            System.out.println("myView = " + myView);
+                            myView.postInvalidate();
+//                            System.out.println("j = " + finalJ);
+                            System.out.println("animation = " + animation.getAnimatedFraction());
                         }
                     });
-                    anim.setDuration(1000);
+
+                    anim.setDuration(10000);
                     anim.start();
                 }
             }

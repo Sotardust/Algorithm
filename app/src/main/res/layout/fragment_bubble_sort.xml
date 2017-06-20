@@ -26,5 +26,8 @@
         android:layout_height="match_parent"
         android:layout_gravity="center"
         />
+    <!--<com.dai.util.MyAnimView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent" />-->
 
 </LinearLayout>
