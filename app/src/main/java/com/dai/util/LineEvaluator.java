@@ -19,9 +19,9 @@ public class LineEvaluator implements TypeEvaluator {
     @Override
     public Object evaluate(float fraction, Object startValue, Object endValue) {
 
-        System.out.println("fraction = " + fraction);
-        System.out.println("startValue = " + startValue);
-        System.out.println("endValue = " + endValue);
+//        System.out.println("fraction = " + fraction);
+//        System.out.println("startValue = " + startValue);
+//        System.out.println("endValue = " + endValue);
 
 
 //        int start = myViews.indexOfValue((MyView) startValue);

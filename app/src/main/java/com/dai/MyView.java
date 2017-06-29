@@ -15,6 +15,11 @@ import android.view.View;
 public class MyView extends View {
 
     private Paint paint;
+
+    public void setPosition(int position) {
+        this.position = position;
+    }
+
     private int position;
     private int value;
 
@@ -45,12 +50,8 @@ public class MyView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-//        System.out.println("canvas.getWidth() = " + canvas.getWidth());
-        int width = canvas.getWidth() * (position + 1) / 20;
-        canvas.translate(width + denominator * (canvas.getWidth() / 20), 500); //将位置移动画纸的坐标点:150,150
-//        System.out.println("canvas.getWidth() * (position + 1) / 10 = " + canvas.getWidth() * (position + 1) / 10);
-        canvas.drawLine(0f, 0f, -0f, -value * 4, paint);
+        int width = canvas.getWidth() * (position + 1) / 10;
+        canvas.translate(width + denominator * (canvas.getWidth() / 10), 500); //将位置移动画纸的坐标点:150,150
+        canvas.drawLine(0f, 0f, -0f, -value, paint);
     }
-
-
 }
