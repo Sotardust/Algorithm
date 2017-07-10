@@ -60,6 +60,7 @@ public class HeapSortFragment extends BaseFragment {
         }
     }
 
+    //数组大小比较并进行交换
     private void swap(int[] ints, int index1, int index2) {
         if (ints[index1] < ints[index2]) {
             int temp = ints[index1];
