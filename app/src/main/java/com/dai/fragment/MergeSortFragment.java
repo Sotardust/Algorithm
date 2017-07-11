@@ -37,7 +37,6 @@ public class MergeSortFragment extends BaseFragment {
     }
 
     private void merge(int[] ints, int left, int center, int right) {
-
         // 临时数组  
         int[] temp = new int[ints.length];
         // 右数组第一个元素索引  
@@ -71,7 +70,6 @@ public class MergeSortFragment extends BaseFragment {
 
     private void mergeSort(int[] ints, int low, int high) {
         int mid = (low + high) / 2;
-
         if (low < high) {
             //左边归并排序
             mergeSort(ints, low, mid);
