@@ -70,3 +70,46 @@
 #### 优缺点
          优点：稳定，效率高
          缺点：归并排序需要O(n)的辅助空间，而与之效率相同的快排和堆排分别需要O(logn)和O(1)的辅助空间，在同类算法中归并排序的空间复杂度略高
+### 五、快速排序
+        快速排序（Quicksort）是对冒泡排序的一种改进。采用分治策略
+#### 基本思想
+         快速排序使用分治的思想，通过一趟排序将待排序列分割成两部分，其中一部分记录的关键字均比另一部分记录的关键字小。
+         之后分别对这两部分记录继续进行排序，以达到整个序列有序的目的。
+#### 实现步骤
+        (1)选择基准：在待排序列中，按照某种方式挑出一个元素，作为 "基准"（pivot）
+
+        (2)分割操作：以该基准在序列中的实际位置，把序列分成两个子序列。此时，在基准左边的元素都比该基准小，在基准右边的元素都比基准大
+
+        (3)递归地对两个序列进行快速排序，直到序列为空或者只有一个元素。
+#### 时间复杂度
+        快速排序的平均时间复杂度为O(nlogn)
+#### 算法实现
+        //获取基准数
+        fun partition(ints: IntArray, low: Int, high: Int): Int {
+            var low = low
+            var high = high
+            val key = ints[low]
+            while (low < high) {
+                while (ints[high] >= key && high > low) {//从后半部分向前扫描
+                    high--
+                }
+                ints[low] = ints[high]
+                while (ints[low] <= key && high > low) { //从前半部分向后扫描
+                    low++
+                }
+                ints[high] = ints[low]
+            }
+            ints[high] = key
+            return high
+        }
+
+        fun sort(ints: IntArray, low: Int, high: Int) {
+            if (low >= high) {
+                return
+            }
+            val index = partition(ints, low, high)
+            sort(ints, low, index - 1)
+            sort(ints, index + 1, high)
+        }
+#### 优缺点
+        优点：数据移动少 速度快 缺点：不稳定
