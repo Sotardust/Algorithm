@@ -32,13 +32,13 @@ class QuickSortFragment : BaseFragment() {
      * 固定切分的效率不太好，随机切分是常用的一种切分，效率比较高，最坏情况下时间复杂度有可能为O(N2).对于三数取中选择基准点是最理想的一种。
      * 本方法固定的切分方式
      * @param ints
-     * @param low
-     * @param high
+     * @param start
+     * @param end
      * @return
      */
-    fun partition(ints: IntArray, low: Int, high: Int): Int {
-        var low = low
-        var high = high
+    fun partition(ints: IntArray, start: Int, end: Int): Int {
+        var low = start
+        var high = end
         val key = ints[low]
         while (low < high) {
             while (ints[high] >= key && high > low) {//从后半部分向前扫描
