@@ -7,13 +7,14 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 
-import com.dai.fragment.BubbleSortFragment;
-import com.dai.fragment.HeapSortFragment;
-import com.dai.fragment.InsertSortFragment;
-import com.dai.fragment.MergeSortFragment;
-import com.dai.fragment.QuickSortFragment;
-import com.dai.fragment.SelectSortFragment;
-import com.dai.fragment.ShellSortFragment;
+import com.dai.fragment.dynamic.LongestCommonSubsequence;
+import com.dai.fragment.sort.BubbleSortFragment;
+import com.dai.fragment.sort.HeapSortFragment;
+import com.dai.fragment.sort.InsertSortFragment;
+import com.dai.fragment.sort.MergeSortFragment;
+import com.dai.fragment.sort.QuickSortFragment;
+import com.dai.fragment.sort.SelectSortFragment;
+import com.dai.fragment.sort.ShellSortFragment;
 
 /**
  * Created by dai on 2017/5/26.
@@ -50,6 +51,9 @@ public class SortActivity extends AppCompatActivity {
                 break;
             case 6:
                 fragment = new SelectSortFragment() ;
+                break;
+            case 7:
+                fragment = new LongestCommonSubsequence() ;
                 break;
         }
         transaction.replace(R.id.fragment, fragment).commit();

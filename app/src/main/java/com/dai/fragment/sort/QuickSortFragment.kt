@@ -1,4 +1,4 @@
-package com.dai.fragment
+package com.dai.fragment.sort
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,12 +10,12 @@ import com.dai.R
  * Created by dai on 2017/5/26.
  */
 
-class QuickSortFragment : BaseFragment() {
+class QuickSortFragment : com.dai.fragment.BaseFragment() {
 
     internal var ints = intArrayOf(48, 15, 24, 59, 64, 79, 97, 40)
 
-    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view = inflater!!.inflate(R.layout.fragment_quick_sort, container, false)
+    override fun onCreateView(inflater: android.view.LayoutInflater?, container: android.view.ViewGroup?, savedInstanceState: android.os.Bundle?): android.view.View? {
+        val view = inflater!!.inflate(com.dai.R.layout.fragment_quick_sort, container, false)
         initView(view)
         sortTitle.text = "这是快速排序"
         initText.text = convert(ints)

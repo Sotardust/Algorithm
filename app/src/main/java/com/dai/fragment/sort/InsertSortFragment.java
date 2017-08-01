@@ -1,4 +1,4 @@
-package com.dai.fragment;
+package com.dai.fragment.sort;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.dai.R;
+import com.dai.fragment.BaseFragment;
 
 /**
  * Created by dai on 2017/5/26.

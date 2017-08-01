@@ -30,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
         data.add("插入排序");
         data.add("堆排序");
         data.add("选择排序");
+        data.add("动态规划");
+        data.add("二分查找");
 
         SortAdapter sortAdapter = new SortAdapter();
         sortAdapter.setData(data);
