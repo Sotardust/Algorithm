@@ -32,6 +32,8 @@ class SelectSortFragment : BaseFragment() {
                     .asSequence()
                     .filter { ints[index] > ints[it] }
                     .forEach { index = it }
+            println("index = ${index}")
+            println("ints[index] = ${ints[index]}")
             val temp = ints[i]
             ints[i] = ints[index]
             ints[index] = temp

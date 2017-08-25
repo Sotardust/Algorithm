@@ -98,7 +98,6 @@ public class LongestCommonSubsequence extends BaseFragment {
                 } else {
                     if (flag) break;
                 }
-
             }
             list.add(temp);
         }
