@@ -6,22 +6,51 @@ import java.util.HashSet;
 
 public class MainClass {
 
+    private static SortClass sortClass;
+
     public static void main(String[] args) {
+        sortClass = new SortClass();
         quickSort();
+        commonSequence();
+        selectSort();
+        insertSort();
+        bubbleSort();
     }
 
 
     //快速排序
     private static void quickSort() {
         int[] array = {4, 8, 0, 3, 2, 7, 6, 9};
-        SortClass sortClass = new SortClass();
         sortClass.quickSort(array, 0, array.length - 1);
-        for (int arr : array) {
-            System.out.println("arr = " + arr);
-        }
     }
-    //两个有序数组，合成一个集合，求中位数
 
+    //最长公共子序列问题：LCS
+    private static void commonSequence() {
+        int[] a = {-2, 11, -4, 13, -5, -2};
+        int[] b = {5, 11, -4, 13, 6, -2};
+        sortClass.commonSequence(a, b);
+    }
+
+    //选择排序
+    private static void selectSort() {
+        int[] a = {5, 11, -4, 13, 6, -2};
+        sortClass.selectSort(a);
+    }
+
+    //插入排序
+    private static void insertSort() {
+        int[] a = {5, 11, -4, 13, 6, -2};
+        sortClass.insertSort(a);
+    }
+
+    //冒泡排序
+    private static void bubbleSort() {
+        int[] a = {5, 11, -4, 13, 6, -2};
+        sortClass.bubbleSort(a);
+    }
+
+
+    //两个有序数组，合成一个集合，求中位数
     private static void sort_1() {
         ArrayList<Integer> list = new ArrayList<>();
         int[] a = {1, 2, 4, 6, 7, 14};

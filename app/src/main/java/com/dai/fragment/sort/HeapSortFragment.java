@@ -34,7 +34,8 @@ public class HeapSortFragment extends BaseFragment {
     }
 
     private void heapSort(int[] ints) {
-        for (int i = 0; i < ints.length / 2; i++) heapAdjust(ints, i, ints.length - 1);
+        for (int i = 0; i < ints.length / 2; i++)
+            heapAdjust(ints, i, ints.length - 1);
         for (int i = ints.length - 1; i > 0; --i) {
             //将堆顶结点与最后一个最后一个结点进行比较
             swap(ints, i, 0);
