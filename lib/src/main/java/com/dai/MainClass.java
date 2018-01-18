@@ -9,12 +9,14 @@ public class MainClass {
     private static SortClass sortClass;
 
     public static void main(String[] args) {
+        System.out.println("MainClass.main");
         sortClass = new SortClass();
         quickSort();
         commonSequence();
         selectSort();
         insertSort();
         bubbleSort();
+        biSearch();
     }
 
 
@@ -47,6 +49,14 @@ public class MainClass {
     private static void bubbleSort() {
         int[] a = {5, 11, -4, 13, 6, -2};
         sortClass.bubbleSort(a);
+    }
+
+    //折半查找
+    private static void biSearch() {
+        int[] array = {4, 8, 9, 12, 16, 17, 20, 31, 42, 56, 81};
+        sortClass.biSearch_1(array, 8);
+        int index = sortClass.biSearch_2(array, 8, 0, array.length - 1);
+        System.out.println("index = " + index);
     }
 
 

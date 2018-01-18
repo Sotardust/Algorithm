@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.dai.MyView;
 import com.dai.R;
+import com.dai.fragment.BubbleSortView;
 import com.dai.util.LineEvaluator;
 
 import java.text.SimpleDateFormat;
@@ -38,17 +39,44 @@ public class BubbleSortFragment extends Fragment {
     Handler handler = null;
     SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss:ss");
     LineEvaluator lineEvaluator = new LineEvaluator();
+    BubbleSortView bubbleSortView;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_bubble_sort, container, false);
-        final TextView start = (TextView) view.findViewById(R.id.bubble_start);
-        final FrameLayout linearLayout = (FrameLayout) view.findViewById(R.id.fragment);
+        bubbleSortView = (BubbleSortView) view.findViewById(R.id.bubble_sort_view);
         Random ran1 = new Random();
         for (int i = 0; i < 10; i++) {
             ints[i] = ran1.nextInt(500) % (500 - 1 + 1) + 1;
         }
+        bubbleSortView.setInts(ints);
+//        new Thread(new Runnable() {
+//            @Override
+//            public void run() {
+//                try {
+                    for (int i = 0; i < ints.length; i++) {
+                        for (int j = 0; j < ints.length - 1; j++) {
+                            if (ints[j] > ints[j + 1]) {
+                                int temp = ints[j + 1];
+                                ints[j + 1] = ints[j];
+                                ints[j] = temp;
+//                                Thread.sleep(1000);
+                                System.out.println("i = " + i);
+                                bubbleSortView.setDuration(10, 100, j, ints);
+                            }
+                        }
+                    }
+//                } catch (InterruptedException e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//        }).start();
+
+        final TextView start = (TextView) view.findViewById(R.id.bubble_start);
+        final FrameLayout linearLayout = (FrameLayout) view.findViewById(R.id.fragment);
+
+
         for (int i = 0; i < ints.length; i++) {
             MyView myView = new MyView(getContext(), i, ints[i]);
             myViews.put(i, myView);

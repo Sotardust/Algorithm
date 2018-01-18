@@ -105,8 +105,8 @@ class SortClass {
         }
     }
 
+    //堆排序
     void heapSort(int[] a) {
-
         for (int i = 0; i < a.length / 2; i++) {
             heapAdjust(a, i, a.length - 1);
         }
@@ -117,6 +117,7 @@ class SortClass {
 
     }
 
+    //堆调整
     void heapAdjust(int[] a, int root, int length) {
         for (int i = 2 * root + 1; i < length; i++) {
             swap(a, i, i + 1);
@@ -129,6 +130,39 @@ class SortClass {
             int temp = a[index1];
             a[index1] = a[index2];
             a[index2] = temp;
+        }
+    }
+
+    //折半查找
+    void biSearch_1(int[] array, int num) {
+        int left = 0;
+        int right = array.length - 1;
+        int mid = 0;
+        while (left <= right) {
+            mid = (left + right) / 2;
+            if (num == array[mid]) {
+                //返回查找到改数值的索引
+                System.out.println("折半查找获取该数组的索引值为：mid = " + mid);
+                break;
+            } else if (num > array[mid]) {
+                left = mid + 1;
+            } else {
+                right = mid - 1;
+            }
+        }
+    }
+
+    //通过递归实现折半查找查找
+    int biSearch_2(int[] array, int num, int left, int right) {
+        int mid = (left + right) / 2;
+        if (num == array[mid]) {
+            //通过递归查询该数值的索引
+            System.out.println("折半查找获取该数组的索引值为：mid = " + mid);
+            return mid;
+        } else if (num < array[mid]) {
+            return biSearch_2(array, num, left, mid - 1);
+        } else {
+            return biSearch_2(array, num, mid + 1, right);
         }
     }
 }
