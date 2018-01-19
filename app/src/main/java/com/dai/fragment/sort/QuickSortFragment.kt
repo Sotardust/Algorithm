@@ -1,28 +1,36 @@
 package com.dai.fragment.sort
 
-import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import com.dai.R
+import com.dai.fragment.BaseFragment
+import com.dai.fragment.view.QuickSortView
+import java.util.*
 
 /**
  * Created by dai on 2017/5/26.
  */
 
-class QuickSortFragment : com.dai.fragment.BaseFragment() {
+class QuickSortFragment : BaseFragment() {
 
-    internal var ints = intArrayOf(48, 15, 24, 59, 64, 79, 97, 40)
 
+    internal var ints = IntArray(150)
+    internal var reInts = IntArray(150)
     override fun onCreateView(inflater: android.view.LayoutInflater?, container: android.view.ViewGroup?, savedInstanceState: android.os.Bundle?): android.view.View? {
         val view = inflater!!.inflate(com.dai.R.layout.fragment_quick_sort, container, false)
+        val ran = Random()
+        for (i in ints.indices) {
+            ints[i] = ran.nextInt(500) % (500 - 1 + 1) + 1
+        }
+        val quickSortView = view.findViewById(R.id.quick_sort_view) as QuickSortView
+        quickSortView.setDistanceAndArray(5f,ints)
         initView(view)
         sortTitle.text = "这是快速排序"
-        initText.text = convert(ints)
-        start.setOnClickListener {
-            sort(ints, 0, ints.size - 1)
-            endText.text = convert(ints)
-        }
+
+
+//        initText.text = convert(ints)
+//        start.setOnClickListener {
+//            sort(ints, 0, ints.size - 1)
+//            endText.text = convert(ints)
+//        }
         return view
     }
 
