@@ -181,7 +181,17 @@ public class MainClass {
         myLinkedList.deleteNode(5);
         myLinkedList.printLinkedList();
 
-        myLinkedList.insertSortNode();
+//        myLinkedList.insertSortNode();
+//        myLinkedList.printLinkedList();
+
+
+        Node head = myLinkedList.getHead();
+
+        myLinkedList.printLinkedList(head);
+
+        Node node = myLinkedList.reverse2(head);
+
+        myLinkedList.printLinkedList(node);
     }
 }
 
