@@ -1,5 +1,8 @@
 package com.dai;
 
+import com.dai.linked.MyLinkedList;
+import com.dai.linked.Node;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -17,6 +20,7 @@ public class MainClass {
         insertSort();
         bubbleSort();
         biSearch();
+        linkedList();
     }
 
 
@@ -160,6 +164,24 @@ public class MainClass {
             }
         }
         return '\n';
+    }
+
+    //对单链表进行处理
+    private static void linkedList() {
+
+        MyLinkedList myLinkedList = new MyLinkedList();
+
+        for (int i = 1; i < 9; i++) {
+            Node node = new Node(i);
+            myLinkedList.addNode(node);
+        }
+        myLinkedList.insertNode(3, new Node(7));
+        myLinkedList.printLinkedList();
+
+        myLinkedList.deleteNode(5);
+        myLinkedList.printLinkedList();
+
+        myLinkedList.insertSortNode();
     }
 }
 
