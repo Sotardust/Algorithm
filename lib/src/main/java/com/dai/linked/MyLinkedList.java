@@ -29,6 +29,7 @@ public class MyLinkedList {
             temp = temp.next;
         }
         temp.next = node; //把节点添加到链表最后
+//        temp = (head);
     }
 
     /**
@@ -68,43 +69,32 @@ public class MyLinkedList {
         }
     }
 
-    //对列表插入排序 //仍有问题
+    //对列表插入排序
     public void insertSortNode() {
 
-        //创建新链表
-        Node newHead = new Node(-1000);    //新链表的头结点
-        Node newTemp = newHead;        //新链表的移动指针
-        Node temp = head;        //旧链表的移动指针
-        if (newTemp.next == null) {        //将第一个结点直接放入新链表中。
-            newTemp.next = new Node(temp.data);
-            temp = temp.next;    //旧链表中指针移到下一位(第二个结点处)。
-        }
-        printLinkedList(temp);
-        while (temp.next != null) {     //    遍历现有链表
-            while (newTemp.next != null) {
-                //先跟新链表中的第一个结点进行比较,如果符合条件则添加到新链表，注意是在第一个位置上增加结点
-                //如果不符合，则跟新链表中第二个结点进行比较，如果都不符合，跳出while，判断是否是到了新链表的最后一个结点，如果是则直接在新链表后面添加即可
+        Node node = head.next;
+        Node temp = head;
+        while (node != null) {
+            Node cur = head;  //比较节点，每次都是从头节点开始
 
-                if (newTemp.next.data < temp.next.data) {
-                    Node node = new Node(temp.next.data);
-                    node.next = newTemp.next;
-                    newTemp.next = node;
-                    break;
-                }
-                newTemp = newTemp.next;
+//            if (node.data < head.data) { //由于是单链表，每次只能从头节点开始比较
+//                temp.next = node.next;
+//                node.next = head;
+//                head = node;
+//            } else
+            while (cur.next != node) {
+                if (node.data < cur.next.data) {//将P与cur.next进行比较，方便单链表插入
+                    temp.next = node.next;
+                    node.next = cur.next;
+                    cur.next = node;
+                    node = temp;  //保证pre每次指向的都是p前面的一个节点
+                } else
+                    cur = cur.next;
             }
-            if (newTemp.next == null) {//到达最末尾还没符合，那么说明该值是新链表中最小的数，直接添加即可到链表中即可
-                //直接在新链表后面添加
-                Node node = new Node(temp.next.data);
-                newTemp.next = node;
-            }
-            //旧链表指针指向下一位结点，继续重复和新链表中的结点进行比较。
-            temp = temp.next;
-            //新链表中的移动指针需要复位，指向头结点
-            newTemp = newHead;
+
+            temp = node;
+            node = node.next;
         }
-        //开始使用新链表，旧链表等待垃圾回收机制将其收回。
-        head = newHead;
     }
 
     //计算链表长度
@@ -133,7 +123,6 @@ public class MyLinkedList {
 
     //打印带参数的链表
     public void printLinkedList(Node tempNode) {
-        System.out.println("*****************************************");
         StringBuffer sb1 = new StringBuffer();
         sb1.append(tempNode.data);
         while (tempNode.next != null) {
@@ -141,7 +130,7 @@ public class MyLinkedList {
             sb1.append(" --> ").append(tempNode.data);
             if (tempNode.next == null) break;
         }
-        System.out.println(" ****链表**** = " + sb1);
+        System.out.println("链表 = " + sb1);
     }
 
     /**
@@ -173,10 +162,9 @@ public class MyLinkedList {
         Node pre = head;
         Node cur = head.getNext();
         while (null != cur.getNext()) {
-            Node temp = cur.getNext();
             cur.setNext(pre);
             pre = cur;
-            cur = temp;
+            cur = cur.getNext();
         }
         cur.setNext(pre);
         head.setNext(null);
@@ -189,7 +177,7 @@ public class MyLinkedList {
      * @param head
      * @return
      */
-    public static Node reverse3(Node head) {
+    public Node reverse3(Node head) {
         Stack<Node> stack = new Stack<Node>();
         for (Node node = head; null != node; node = node.getNext()) {
             stack.add(node);
@@ -200,6 +188,7 @@ public class MyLinkedList {
             cur.setNext(stack.pop());
             cur = cur.getNext();
             cur.setNext(null);
+            printLinkedList(cur);
         }
         return reHead;
     }
