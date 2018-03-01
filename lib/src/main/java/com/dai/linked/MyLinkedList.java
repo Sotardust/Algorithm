@@ -69,7 +69,7 @@ public class MyLinkedList {
         }
     }
 
-    //对列表插入排序
+    //对列表插入排序 //仍有问题
     public void insertSortNode() {
 
         Node node = head.next;
@@ -90,8 +90,9 @@ public class MyLinkedList {
                     node = temp;  //保证pre每次指向的都是p前面的一个节点
                 } else
                     cur = cur.next;
+                printLinkedList(cur);
             }
-
+            System.out.println("node = " + node.data);
             temp = node;
             node = node.next;
         }
@@ -104,6 +105,9 @@ public class MyLinkedList {
         while (node.next != null) {
             length++;
             node = node.next;
+            if (node.next == null) {
+                length++;
+            }
         }
         return length;
     }

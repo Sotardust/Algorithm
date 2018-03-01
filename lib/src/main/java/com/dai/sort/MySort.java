@@ -7,7 +7,11 @@ import java.util.Random;
  */
 public class MySort {
 
-    private int[] ints = new int[10];
+    public int[] getInts() {
+        return ints;
+    }
+
+    private int[] ints = new int[100000];
     private Random random = new Random();
 
     public MySort() {
@@ -23,7 +27,7 @@ public class MySort {
     }
 
     // 数组交换 升序
-    void swap(int[] a, int index1, int index2) {
+    private void swap(int[] a, int index1, int index2) {
         if (a[index1] < a[index2]) {
             int temp = a[index1];
             a[index1] = a[index2];
@@ -114,8 +118,27 @@ public class MySort {
     }
 
     //堆排序算法
-    public void heapSort() {
-        //TODO
+    private void heapSort() {
+        for (int i = 0; i < ints.length / 2; i++) {
+            heapAdjust(ints, i, ints.length - 1);
+        }
+        for (int i = ints.length - 1; i > 0; --i) {
+            swap(ints, i, 0);
+            heapAdjust(ints, 0, i - 1);
+        }
+    }
+
+    //执行堆排序算法
+    public void executeHeapSort() {
+        heapSort();
+    }
+
+    //堆调整
+    private void heapAdjust(int[] a, int root, int length) {
+        for (int i = 2 * root + 1; i < length; i++) {
+            swap(a, i, i + 1);
+            swap(a, root, i);
+        }
     }
 
     //归并排序算法
@@ -146,24 +169,23 @@ public class MySort {
                 temp[index++] = ints[mid++];
             }
         }
-        printArray("temp1", temp);
+//        printArray("temp1", temp);
         while (low <= center) {
             temp[index++] = ints[low++];
         }
 
-        printArray("temp2", temp);
+//        printArray("temp2", temp);
         while (mid <= high) {
             temp[index++] = ints[mid++];
         }
 
-        printArray("temp3", temp);
+//        printArray("temp3", temp);
         //（原left-right范围的内容被复制回原数组）
         while (tempIndex <= high) {
             ints[tempIndex] = temp[tempIndex++];
         }
-        printArray("temp4", ints);
+//        printArray("temp4", ints);
     }
-
 
     //选择排序算法
     public void selectSort() {
@@ -182,7 +204,7 @@ public class MySort {
 
     //希尔排序算法
     public void shellSort() {
-
+        //TODO 等待添加希尔排序
     }
 
     //动态规划算法
