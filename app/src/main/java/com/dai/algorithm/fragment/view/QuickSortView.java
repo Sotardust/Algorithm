@@ -1,4 +1,4 @@
-package com.dai.fragment.view;
+package com.dai.algorithm.fragment.view;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -6,7 +6,7 @@ import android.graphics.Color;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 
-import com.dai.fragment.BaseView;
+import com.dai.algorithm.fragment.BaseView;
 
 /**
  * Created by dai on 2018/1/19.

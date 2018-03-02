@@ -7,7 +7,7 @@
     android:orientation="vertical">
 
   <include layout="@layout/fragment_base"></include>
-  <com.dai.fragment.view.QuickSortView
+  <com.dai.algorithm.fragment.view.QuickSortView
       android:id="@+id/quick_sort_view"
       android:layout_width="match_parent"
       android:background="@color/white"

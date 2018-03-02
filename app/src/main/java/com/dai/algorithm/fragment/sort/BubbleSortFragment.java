@@ -1,4 +1,4 @@
-package com.dai.fragment.sort;
+package com.dai.algorithm.fragment.sort;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -10,7 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.dai.R;
-import com.dai.fragment.view.BubbleSortView;
+import com.dai.algorithm.fragment.view.BubbleSortView;
 
 import java.util.Random;
 

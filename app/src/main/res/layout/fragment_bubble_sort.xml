@@ -21,13 +21,13 @@
         android:visibility="visible" />
 
 
-    <com.dai.fragment.view.BubbleSortView
+    <com.dai.algorithm.fragment.view.BubbleSortView
         android:id="@+id/bubble_sort_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white" />
 
-    <!--<com.dai.util.MyAnimView-->
+    <com.dai.algorithm.utilutil.MyAnimView-->
     <!--android:layout_width="match_parent"-->
     <!--android:layout_height="match_parent" />-->
 

@@ -1,4 +1,4 @@
-package com.dai.fragment;
+package com.dai.algorithm.fragment;
 
 import android.support.v4.app.Fragment;
 import android.view.View;

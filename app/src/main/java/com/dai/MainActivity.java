@@ -7,6 +7,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.Toast;
 
+import com.dai.algorithm.SortActivity;
+import com.dai.algorithm.SortAdapter;
 import com.dai.library.util.BaseRecyclerAdapter;
 
 import java.util.ArrayList;

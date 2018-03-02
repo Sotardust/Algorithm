@@ -11,6 +11,7 @@ import com.dai.sort.MySort;
  * Created by dai on 2018/2/27.
  */
 public class Test {
+    private static final String TAG = "Test";
 
     public static void main(String[] args) {
 //        myLinkedList();
@@ -101,5 +102,9 @@ public class Test {
         MyDynamic myDynamic = new MyDynamic();
         System.out.println("myDynamic.maxSum() = " + myDynamic.maxSum());
         myDynamic.executeCommonSequence();
+    }
+
+    private static  void myDesignPattern(){
+
     }
 }

@@ -1,9 +1,9 @@
-package com.dai.util;
+package com.dai.algorithm.util;
 
 import android.animation.TypeEvaluator;
 import android.util.SparseArray;
 
-import com.dai.MyView;
+import com.dai.algorithm.MyView;
 
 /**
  * Created by dai on 2017/6/19.

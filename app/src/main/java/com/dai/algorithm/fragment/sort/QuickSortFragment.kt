@@ -1,8 +1,8 @@
-package com.dai.fragment.sort
+package com.dai.algorithm.fragment.sort
 
 import com.dai.R
-import com.dai.fragment.BaseFragment
-import com.dai.fragment.view.QuickSortView
+import com.dai.algorithm.fragment.BaseFragment
+import com.dai.algorithm.fragment.view.QuickSortView
 import java.util.*
 
 /**

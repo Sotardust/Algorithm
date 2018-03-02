@@ -1,4 +1,4 @@
-package com.dai.util;
+package com.dai.algorithm.util;
 
 import android.animation.ValueAnimator;
 import android.content.Context;
@@ -8,7 +8,7 @@ import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.View;
 
-import com.dai.Point;
+import com.dai.algorithm.Point;
 
 /**
  * Created by dai on 2017/6/20.

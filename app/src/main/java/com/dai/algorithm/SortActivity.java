@@ -1,4 +1,4 @@
-package com.dai;
+package com.dai.algorithm;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -7,14 +7,15 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 
-import com.dai.fragment.dynamic.LongestCommonSubsequence;
-import com.dai.fragment.sort.BubbleSortFragment;
-import com.dai.fragment.sort.HeapSortFragment;
-import com.dai.fragment.sort.InsertSortFragment;
-import com.dai.fragment.sort.MergeSortFragment;
-import com.dai.fragment.sort.QuickSortFragment;
-import com.dai.fragment.sort.SelectSortFragment;
-import com.dai.fragment.sort.ShellSortFragment;
+import com.dai.R;
+import com.dai.algorithm.fragment.dynamic.LongestCommonSubsequence;
+import com.dai.algorithm.fragment.sort.BubbleSortFragment;
+import com.dai.algorithm.fragment.sort.HeapSortFragment;
+import com.dai.algorithm.fragment.sort.InsertSortFragment;
+import com.dai.algorithm.fragment.sort.MergeSortFragment;
+import com.dai.algorithm.fragment.sort.QuickSortFragment;
+import com.dai.algorithm.fragment.sort.SelectSortFragment;
+import com.dai.algorithm.fragment.sort.ShellSortFragment;
 
 /**
  * Created by dai on 2017/5/26.

@@ -1,11 +1,11 @@
-package com.dai.fragment.sort
+package com.dai.algorithm.fragment.sort
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.dai.R
-import com.dai.fragment.BaseFragment
+import com.dai.algorithm.fragment.BaseFragment
 
 /**
  * Created by dai on 2017/5/26.

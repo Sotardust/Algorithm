@@ -1,4 +1,4 @@
-package com.dai.newcoder;
+package com.dai.algorithm.newcoder;
 
 /**
  * Created by dai on 2017/7/18.

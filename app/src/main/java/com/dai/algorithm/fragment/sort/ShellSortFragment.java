@@ -1,4 +1,4 @@
-package com.dai.fragment.sort;
+package com.dai.algorithm.fragment.sort;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.dai.R;
-import com.dai.fragment.BaseFragment;
+import com.dai.algorithm.fragment.BaseFragment;
 
 import java.util.ArrayList;
 

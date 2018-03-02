@@ -1,4 +1,4 @@
-package com.dai.fragment;
+package com.dai.algorithm.fragment;
 
 import android.content.Context;
 import android.graphics.Color;

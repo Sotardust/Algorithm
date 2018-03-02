@@ -1,4 +1,4 @@
-package com.dai;
+package com.dai.algorithm;
 
 /**
  * Created by dai on 2017/6/20.

@@ -1,4 +1,4 @@
-package com.dai.newcoder;
+package com.dai.algorithm.newcoder;
 
 import java.util.ArrayList;
 
