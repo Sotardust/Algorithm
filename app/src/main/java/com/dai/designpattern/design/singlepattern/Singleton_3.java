@@ -1,4 +1,4 @@
-package com.dai.design;
+package com.dai.designpattern.design.singlepattern;
 
 /**
  * 单例模式  静态内部类

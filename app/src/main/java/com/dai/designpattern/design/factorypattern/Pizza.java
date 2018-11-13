@@ -1,13 +1,8 @@
-package com.dai.design.factorypattern;
+package com.dai.designpattern.design.factorypattern;
 
 import java.util.ArrayList;
 
-import sun.rmi.runtime.Log;
-
 /**
- *
- * 工厂方法模式：定义了一个创建对象的接口，但由子类决定要实例化的的类是哪一个，
- * 工厂方法让类把实例化推迟到子类
  * created by Administrator on 2018/11/5 10:55
  */
 public abstract class Pizza {

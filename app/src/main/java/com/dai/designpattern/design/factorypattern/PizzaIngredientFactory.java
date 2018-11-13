@@ -1,4 +1,4 @@
-package com.dai.design.factorypattern;
+package com.dai.designpattern.design.factorypattern;
 
 /**
  * Created by Administrator on 2018/7/30 0030.

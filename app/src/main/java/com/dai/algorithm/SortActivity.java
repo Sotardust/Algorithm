@@ -13,8 +13,8 @@ import com.dai.algorithm.fragment.sort.BubbleSortFragment;
 import com.dai.algorithm.fragment.sort.HeapSortFragment;
 import com.dai.algorithm.fragment.sort.InsertSortFragment;
 import com.dai.algorithm.fragment.sort.MergeSortFragment;
-import com.dai.algorithm.fragment.sort.QuickSortFragment;
-import com.dai.algorithm.fragment.sort.SelectSortFragment;
+//import com.dai.algorithm.fragment.sort.QuickSortFragment;
+//import com.dai.algorithm.fragment.sort.SelectSortFragment;
 import com.dai.algorithm.fragment.sort.ShellSortFragment;
 
 /**
@@ -36,7 +36,7 @@ public class SortActivity extends AppCompatActivity {
                 fragment = new BubbleSortFragment() ;
                 break;
             case 1:
-                fragment = new QuickSortFragment() ;
+//                fragment = new QuickSortFragment() ;
                 break;
             case 2:
                 fragment = new MergeSortFragment() ;
@@ -51,7 +51,7 @@ public class SortActivity extends AppCompatActivity {
                 fragment = new HeapSortFragment() ;
                 break;
             case 6:
-                fragment = new SelectSortFragment() ;
+//                fragment = new SelectSortFragment() ;
                 break;
             case 7:
                 fragment = new LongestCommonSubsequence() ;
